@@ -23,33 +23,34 @@ db.connect((err) => {
   }
 });
 
-function initDB() {
-  const studentsTable = `
-    CREATE TABLE IF NOT EXISTS students (
-      id INT AUTO_INCREMENT PRIMARY KEY,
-      name VARCHAR(100),
-      age INT
-    )
-  `;
+//function initDB() {
+  // const studentsTable = `
+  //   CREATE TABLE IF NOT EXISTS students (
+  //     id INT AUTO_INCREMENT PRIMARY KEY,
+  //     name VARCHAR(100),
+  //     age INT
+  //   )
+  // `;
 
-  const teachersTable = `
-    CREATE TABLE IF NOT EXISTS teachers (
-      id INT AUTO_INCREMENT PRIMARY KEY,
-      name VARCHAR(100),
-      subject VARCHAR(100)
-    )
-  `;
+  // const teachersTable = `
+  //   CREATE TABLE IF NOT EXISTS teachers (
+  //     id INT AUTO_INCREMENT PRIMARY KEY,
+  //     name VARCHAR(100),
+  //     subject VARCHAR(100)
+  //   )
+  // `;
 
-  db.query(studentsTable);
-  db.query(teachersTable);
-}
+//   db.query(studentsTable);
+//   db.query(teachersTable);
+// }
 
-initDB();
 
 app.get("/", (req, res) => {
   res.send("Backend is running!");
 });
 
-app.listen(3500, () => {
-  console.log("Server running on port 3500");
+const PORT = process.env.PORT || 3500;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
